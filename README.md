@@ -16,7 +16,7 @@ This Vim syntax file provides enhanced syntax highlighting for ABAQUS message fi
 **Manual Installation:**
 - Copy `messagefile.vim` to your Vim syntax directory, typically `~/.vim/syntax/`.
 - Add the following line to your `~/.vimrc`:
-  au BufRead,BufNewFile *.msg set filetype=messagefile
+    - `au BufRead,BufNewFile *.msg set filetype=messagefile`
 - Restart Vim or source your `.vimrc` file.
 
 ### Windows Installation (Vim)
@@ -24,7 +24,7 @@ This Vim syntax file provides enhanced syntax highlighting for ABAQUS message fi
 **Manual Installation:**
 - Copy `messagefile.vim` to your Vim syntax directory, typically `C:\Users\[Username]\vimfiles\syntax\`.
 - Add the following line to your `_vimrc`:
-  au BufRead,BufNewFile *.msg set filetype=messagefile
+    - `au BufRead,BufNewFile *.msg set filetype=messagefile`
 - Restart Vim or source your `_vimrc` file.
 
 ### Neovim Installation
@@ -41,7 +41,7 @@ Once installed, `messagefile.vim` will automatically highlight ABAQUS message fi
 
 - Users can customize the colors and styles by editing `messagefile.vim`.
 - For example, to change the warning color, modify the line:
-hi def abaqusWarning ctermbg=DarkYellow
+    - `hi def abaqusWarning ctermbg=DarkYellow`
 
 ## Contribution
 
