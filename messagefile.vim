@@ -2,6 +2,15 @@ if exists("b:current_syntax")
   finish
 endif
 
+syn match abaqusSevereDiscontinuities01 /^\s*\d\+\sSEVERE DISCONTINUITIES OCCURRED DURING INCREMENT ATTEMPT INITIALIZATION\.$/
+syn match abaqusSevereDiscontinuities /^\s*\d\+\sSEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION\.$/
+syn match abaqusOpenToClosed /^\s*\d\+\sPOINTS CHANGED FROM OPEN TO CLOSED$/
+syn match abaqusClosedToOpen /^\s*\d\+\sPOINTS CHANGED FROM CLOSED TO OPEN$/
+syn match abaqusSlippingToSticking /^\s*\d\+\sPOINTS CHANGED FROM SLIPPING TO STICKING$/
+syn match abaqusStickingToSlipping /^\s*\d\+\sPOINTS CHANGED FROM STICKING TO SLIPPING$/
+
+syn match abaqusMomResZ /ALL MOMENT\s\+RESIDUALS ARE ZERO/
+syn match abaqusEstiCo /THE ESTIMATED CONTACT FORCE ERROR IS OUTSIDE.*$/
 syn match abaqusCompaError /COMPATIBILITY ERRORS:/
 syn match abaqusAtNode /AT NODE.\{-}\zeDOF/
 syn match abaqusAtNode /AT NODE.\{-}\zeOF CONTACT/
@@ -65,6 +74,14 @@ syn match abaqusTimeIncrementation /TIME INCREMENTATION CONTROL PARAMETERS:/
 syn match abaqusContactControls /CONTACT CONTROLS APPLIED TO ALL CONTACT PAIRS:/
 syn match abaqusSolverWarning /.*\*\*\*\sWARNING: SOLVER PROBLEM\..*$/
 
+hi def abaqusClosedToOpen ctermfg=Magenta
+hi def abaqusOpenToClosed ctermfg=Magenta
+hi def abaqusStickingToSlipping ctermfg=Magenta
+hi def abaqusSlippingToSticking ctermfg=Magenta
+hi def abaqusSevereDiscontinuities01 ctermfg=Magenta
+hi def abaqusSevereDiscontinuities ctermbg=Magenta
+hi def abaqusMomResZ ctermfg=DarkYellow
+hi def abaqusEstiCo ctermfg=DarkYellow
 hi def abaqusCompaError ctermfg=Red
 hi def abaqusMaxConError ctermfg=Red
 hi def abaqusMaxPenError ctermfg=Red
@@ -121,6 +138,14 @@ hi def abaqusTimeIncrementation ctermfg=DarkYellow
 hi def abaqusContactControls ctermfg=DarkYellow
 hi def abaqusSolverWarning ctermbg=DarkYellow
 
+hi def link abaqusClosedToOpen abaqusClosedToOpen
+hi def link abaqusOpenToClosed abaqusOpenToClosed
+hi def link abaqusStickingToSlipping abaqusStickingToSlipping
+hi def link abaqusSlippingToSticking abaqusSlippingToSticking
+hi def link abaqusSevereDiscontinuities01 abaqusSevereDiscontinuities01
+hi def link abaqusSevereDiscontinuities abaqusSevereDiscontinuities
+hi def link abaqusMomResZ abaqusMomResZ
+hi def link abaqusEstiCo abaqusEstiCo
 hi def link abaqusCompaError abaqusCompaError
 hi def link abaqusMaxConError abaqusMaxConError
 hi def link abaqusMaxPenError abaqusMaxPenError
