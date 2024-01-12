@@ -1,27 +1,36 @@
-" messagefile.vim
 if exists("b:current_syntax")
   finish
 endif
 
-" Define syntax groups for various messages and states
+syn match abaqusCompaError /COMPATIBILITY ERRORS:/
+syn match abaqusAtNode /AT NODE.\{-}\zeDOF/
+syn match abaqusAtNode /AT NODE.\{-}\zeOF CONTACT/
+syn match abaqusDof /DOF\s\+\d\+/
+syn match abaqusMaxPenError /MAX\. PENETRATION ERROR\s\+\S\+\ze\s\+AT NODE/
+syn match abaqusMaxConError /MAX\. CONTACT FORCE ERROR\s\+\S\+\ze\s\+AT NODE/
+syn match abaqusAverageForce /AVERAGE FORCE.\{-}\zeTIME AVG\. FORCE/
+syn match abaqusTimeAverageForce /TIME AVG\. FORCE.*$/
+syn match abaqusAverageMoment /AVERAGE MOMENT.\{-}\zeTIME AVG\. MOMENT/
+syn match abaqusTimeAverageMoment /TIME AVG\. MOMENT.*$/
+syn match abaqusLargestIncD /LARGEST INCREMENT OF DISP\.\s\+\S\+\ze\s\+AT NODE/
+syn match abaqusLargestCorrD /LARGEST CORRECTION TO DISP\.\s\+\S\+\ze\s\+AT NODE/
+syn match abaqusLargestScaledResidualForce /LARGEST SCALED RESIDUAL FORCE\s\+\S\+\ze\s\+AT NODE/
+syn match abaqusLargestResidualForce /LARGEST RESIDUAL FORCE\s\+\S\+\ze\s\+AT NODE/
+syn match abaqusCorrespondingResidualForce /CORRESPONDING RESIDUAL FORCE\s\+\S\+/
+syn match abaqusLargestScaledResidualMoment /LARGEST SCALED RESIDUAL MOMENT\s\+\S\+\ze\s\+AT NODE/
+syn match abaqusLargestResidualMoment /LARGEST RESIDUAL MOMENT\s\+\S\+\ze\s\+AT NODE/
+syn match abaqusCorrespondingResidualMoment /CORRESPONDING RESIDUAL MOMENT\s\+\S\+/
+syn match abaqusLargestIncR /LARGEST INCREMENT OF ROTATION\s\+\S\+\ze\s\+AT NODE/
+syn match abaqusLargestCorrR /LARGEST CORRECTION TO ROTATION\s\+\S\+\ze\s\+AT NODE/
 syn match abaqusIncrement "INCREMENT\s\+\d\+\s\+STARTS.\s\+ATTEMPT NUMBER\s\+\d\+,\s\+TIME INCREMENT\s\+\S\+"
 syn match abaqusIncrementIncrease /TIME INCREMENT MAY NOW INCREASE TO\s\+\S\+/
 syn match abaqusStep /STEP\s\+\d\+\s\+INCREMENT\s\+\d\+\s\+STEP TIME\s\+\d\+\.\d\+/
 syn match abaqusWarning /.*\*\*\*WARNING:.*$/
-
-" Match the start of a warning message
 syn match abaqusWarningStart /^\s*\*\*\*WARNING:.*$/ nextgroup=abaqusWarningCont,abaqusWarningStart
-
-" Match the continuation lines of a warning message, adjust the pattern to match more specifically
-" syn match abaqusWarningCont /^\s\{13\}\(ELEMENT NUMBER\|INCREMENTAL ROTATION UPDATE\).*$/
-syn match abaqusWarningCont /^\s\{13\}\(ELEMENT NUMBER\|INCREMENTAL ROTATION UPDATE\|FIRST YIELD AT\|(CONTINUUM) ELEMENTS\|THE PLASTICITY\|EXPLANATIONS ARE SUGGESTED\).*$/
+syn match abaqusWarningCont /^\s\{13\}\(ELEMENT NUMBER\|INCREMENTAL ROTATION UPDATE\|FIRST YIELD AT\|(CONTINUUM) ELEMENTS\|THE PLASTICITY\|EXPLANATIONS ARE SUGGESTED\|ALGORITHM\).*$/
     \ nextgroup=abaqusWarningCont,abaqusWarningStart
-
-" Define the highlighting for these matches
 hi def link abaqusWarningStart abaqusWarning
 hi def link abaqusWarningCont abaqusWarning
-
-
 syn match abaqusNote /.*\*\*\*NOTE:.*$/
 syn match abaqusError /.*\*\*\*ERROR:.*$/
 syn match abaqusError /.*\*\*\* ERROR:.*$/
@@ -56,8 +65,25 @@ syn match abaqusTimeIncrementation /TIME INCREMENTATION CONTROL PARAMETERS:/
 syn match abaqusContactControls /CONTACT CONTROLS APPLIED TO ALL CONTACT PAIRS:/
 syn match abaqusSolverWarning /.*\*\*\*\sWARNING: SOLVER PROBLEM\..*$/
 
-
-" Link the syntax groups to colors
+hi def abaqusCompaError ctermfg=Red
+hi def abaqusMaxConError ctermfg=Red
+hi def abaqusMaxPenError ctermfg=Red
+hi def abaqusLargestScaledResidualMoment ctermfg=DarkYellow
+hi def abaqusLargestResidualMoment ctermfg=DarkYellow
+hi def abaqusCorrespondingResidualMoment ctermfg=DarkYellow
+hi def abaqusAtNode ctermfg=Magenta
+hi def abaqusDof ctermfg=DarkRed
+hi def abaqusLargestIncR ctermfg=DarkGreen
+hi def abaqusLargestCorrR ctermfg=DarkGreen
+hi def abaqusLargestIncD ctermfg=DarkGreen
+hi def abaqusLargestCorrD ctermfg=DarkGreen
+hi def abaqusAverageForce ctermfg=Blue
+hi def abaqusTimeAverageForce ctermfg=Blue
+hi def abaqusAverageMoment ctermfg=Blue
+hi def abaqusTimeAverageMoment ctermfg=Blue
+hi def abaqusLargestResidualForce ctermfg=DarkYellow
+hi def abaqusLargestScaledResidualForce ctermfg=DarkYellow
+hi def abaqusCorrespondingResidualForce ctermfg=DarkYellow
 hi def abaqusIncrement ctermbg=DarkBlue
 hi def abaqusZeroMoment ctermfg=DarkYellow
 hi def abaqusIncrementIncrease ctermfg=Green
@@ -95,7 +121,25 @@ hi def abaqusTimeIncrementation ctermfg=DarkYellow
 hi def abaqusContactControls ctermfg=DarkYellow
 hi def abaqusSolverWarning ctermbg=DarkYellow
 
-
+hi def link abaqusCompaError abaqusCompaError
+hi def link abaqusMaxConError abaqusMaxConError
+hi def link abaqusMaxPenError abaqusMaxPenError
+hi def link abaqusLargestScaledResidualMoment abaqusLargestScaledResidualMoment
+hi def link abaqusLargestResidualMoment abaqusLargestResidualMoment
+hi def link abaqusCorrespondingResidualMoment abaqusCorrespondingResidualMoment
+hi def link abaqusAtNode abaqusAtNode
+hi def link abaqusDof abaqusDof
+hi def link abaqusLargestIncR abaqusLargestIncR
+hi def link abaqusLargestCorrR abaqusLargestCorrR
+hi def link abaqusLargestIncD abaqusLargestIncD
+hi def link abaqusLargestCorrD abaqusLargestCorrD
+hi def link abaqusAverageForce abaqusAverageForce
+hi def link abaqusTimeAverageForce abaqusTimeAverageForce
+hi def link abaqusAverageMoment abaqusAverageMoment
+hi def link abaqusTimeAverageMoment abaqusTimeAverageMoment
+hi def link abaqusLargestResidualForce abaqusLargestResidualForce
+hi def link abaqusLargestScaledResidualForce abaqusLargestScaledResidualForce
+hi def link abaqusCorrespondingResidualForce abaqusCorrespondingResidualForce
 hi def link abaqusIncrement abaqusIncrement
 hi def link abaqusZeroMoment abaqusZeroMoment
 hi def link abaqusIncrementIncrease abaqusIncrementIncrease
@@ -132,6 +176,5 @@ hi def link abaqusConvergenceMoment abaqusConvergenceMoment
 hi def link abaqusTimeIncrementation abaqusTimeIncrementation
 hi def link abaqusContactControls abaqusContactControls
 hi def link abaqusSolverWarning abaqusSolverWarning
-
 
 let b:current_syntax = "messagefile"
