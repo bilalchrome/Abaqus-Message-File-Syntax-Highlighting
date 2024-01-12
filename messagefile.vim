@@ -1,14 +1,22 @@
+" Abaqus Message File Syntax Highlighting
+" For more information and updates, visit: https://github.com/bilalchrome/Abaqus-Message-File-Syntax-Highlighting
+" Author: Bilal Abdul Halim
+
 if exists("b:current_syntax")
   finish
 endif
 
+syn match abaqusContactPair /\((\w\+,\w\+)\)/
+syn match abaqusIterationSummary /^ ITERATION SUMMARY FOR THE INCREMENT:/
+syn match abaqusSevereDiscontinuityIterations01 /^\s*\d\+\sARE SEVERE DISCONTINUITY ITERATIONS/
+syn match abaqusEquilibriumIterations01 /\d\+\sARE EQUILIBRIUM ITERATIONS\.$/
+syn match abaqusTimeIncCompleted /TIME INCREMENT COMPLETED\s\+\ze\s\+,/
 syn match abaqusSevereDiscontinuities01 /^\s*\d\+\sSEVERE DISCONTINUITIES OCCURRED DURING INCREMENT ATTEMPT INITIALIZATION\.$/
 syn match abaqusSevereDiscontinuities /^\s*\d\+\sSEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION\.$/
 syn match abaqusOpenToClosed /^\s*\d\+\sPOINTS CHANGED FROM OPEN TO CLOSED$/
 syn match abaqusClosedToOpen /^\s*\d\+\sPOINTS CHANGED FROM CLOSED TO OPEN$/
 syn match abaqusSlippingToSticking /^\s*\d\+\sPOINTS CHANGED FROM SLIPPING TO STICKING$/
 syn match abaqusStickingToSlipping /^\s*\d\+\sPOINTS CHANGED FROM STICKING TO SLIPPING$/
-
 syn match abaqusMomResZ /ALL MOMENT\s\+RESIDUALS ARE ZERO/
 syn match abaqusEstiCo /THE ESTIMATED CONTACT FORCE ERROR IS OUTSIDE.*$/
 syn match abaqusCompaError /COMPATIBILITY ERRORS:/
@@ -66,6 +74,7 @@ syn match abaqusLinearMomentEquilibrium /THE MOMENT\s\+EQUILIBRIUM RESPONSE WAS 
 syn match abaqusSystemWarning /.*\*\*\*\sWARNING:.*$/
 syn match abaqusDistortion /ELEMENT\s\+\S\+\sIS DISTORTING EXCESSIVELY\./
 syn match abaqusTimeIncrementCompleted /TIME INCREMENT COMPLETED\s\+\S\+,\s\+FRACTION OF STEP COMPLETED\s\+\S\+/
+syn match abaqusStepTimeCompleted /STEP TIME COMPLETED\s\+\S\+,\s\+TOTAL TIME COMPLETED\s\+\S\+/
 syn match abaqusStaticAnalysis /S T E P\s\+\d\s\+S T A T I C\s\+A N A L Y S I S/
 syn match abaqusSolver /LINEAR EQUATION SOLVER TYPE\s\+\w\+\s\+\w\+/
 syn match abaqusConvergenceForce /CONVERGENCE TOLERANCE PARAMETERS FOR FORCE/
@@ -74,6 +83,11 @@ syn match abaqusTimeIncrementation /TIME INCREMENTATION CONTROL PARAMETERS:/
 syn match abaqusContactControls /CONTACT CONTROLS APPLIED TO ALL CONTACT PAIRS:/
 syn match abaqusSolverWarning /.*\*\*\*\sWARNING: SOLVER PROBLEM\..*$/
 
+hi def abaqusContactPair ctermfg=DarkCyan
+hi def abaqusIterationSummary ctermfg=Cyan
+hi def abaqusSevereDiscontinuityIterations01 ctermfg=DarkMagenta
+hi def abaqusEquilibriumIterations01 ctermfg=DarkYellow
+hi def abaqusTimeIncCompleted ctermfg=DarkYellow
 hi def abaqusClosedToOpen ctermfg=Magenta
 hi def abaqusOpenToClosed ctermfg=Magenta
 hi def abaqusStickingToSlipping ctermfg=Magenta
@@ -129,7 +143,8 @@ hi def abaqusForceEquilibriumConverged ctermfg=Green
 hi def abaqusMomentEquilibriumConverged ctermfg=Green
 hi def abaqusSystemWarning ctermfg=Yellow
 hi def abaqusDistortion ctermfg=Yellow
-hi def abaqusTimeIncrementCompleted ctermfg=LightCyan
+hi def abaqusTimeIncrementCompleted ctermfg=Cyan
+hi def abaqusStepTimeCompleted ctermfg=Cyan
 hi def abaqusStaticAnalysis ctermbg=DarkBlue
 hi def abaqusSolver ctermfg=LightGreen
 hi def abaqusConvergenceForce ctermfg=DarkYellow
@@ -138,6 +153,13 @@ hi def abaqusTimeIncrementation ctermfg=DarkYellow
 hi def abaqusContactControls ctermfg=DarkYellow
 hi def abaqusSolverWarning ctermbg=DarkYellow
 
+hi def link abaqusContactPair abaqusContactPair
+hi def link abaqusTimeIncrementCompleted abaqusTimeIncrementCompleted
+hi def link abaqusStepTimeCompleted abaqusStepTimeCompleted
+hi def link abaqusIterationSummary abaqusIterationSummary
+hi def link abaqusSevereDiscontinuityIterations01 abaqusSevereDiscontinuityIterations01
+hi def link abaqusEquilibriumIterations01 abaqusEquilibriumIterations01
+hi def link abaqusTimeIncCompleted abaqusTimeIncCompleted
 hi def link abaqusClosedToOpen abaqusClosedToOpen
 hi def link abaqusOpenToClosed abaqusOpenToClosed
 hi def link abaqusStickingToSlipping abaqusStickingToSlipping
