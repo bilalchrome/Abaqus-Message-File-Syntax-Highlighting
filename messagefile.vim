@@ -83,75 +83,75 @@ syn match abaqusTimeIncrementation /TIME INCREMENTATION CONTROL PARAMETERS:/
 syn match abaqusContactControls /CONTACT CONTROLS APPLIED TO ALL CONTACT PAIRS:/
 syn match abaqusSolverWarning /.*\*\*\*\sWARNING: SOLVER PROBLEM\..*$/
 
-hi def abaqusContactPair ctermfg=DarkCyan
-hi def abaqusIterationSummary ctermfg=Cyan
-hi def abaqusSevereDiscontinuityIterations01 ctermfg=DarkMagenta
-hi def abaqusEquilibriumIterations01 ctermfg=DarkYellow
-hi def abaqusTimeIncCompleted ctermfg=DarkYellow
-hi def abaqusClosedToOpen ctermfg=Magenta
-hi def abaqusOpenToClosed ctermfg=Magenta
-hi def abaqusStickingToSlipping ctermfg=Magenta
-hi def abaqusSlippingToSticking ctermfg=Magenta
-hi def abaqusSevereDiscontinuities01 ctermfg=Magenta
-hi def abaqusSevereDiscontinuities ctermbg=Magenta
-hi def abaqusMomResZ ctermfg=DarkYellow
-hi def abaqusEstiCo ctermfg=DarkYellow
-hi def abaqusCompaError ctermfg=Red
-hi def abaqusMaxConError ctermfg=Red
-hi def abaqusMaxPenError ctermfg=Red
-hi def abaqusLargestScaledResidualMoment ctermfg=DarkYellow
-hi def abaqusLargestResidualMoment ctermfg=DarkYellow
-hi def abaqusCorrespondingResidualMoment ctermfg=DarkYellow
-hi def abaqusAtNode ctermfg=Magenta
-hi def abaqusDof ctermfg=DarkRed
-hi def abaqusLargestIncR ctermfg=DarkGreen
-hi def abaqusLargestCorrR ctermfg=DarkGreen
-hi def abaqusLargestIncD ctermfg=DarkGreen
-hi def abaqusLargestCorrD ctermfg=DarkGreen
-hi def abaqusAverageForce ctermfg=Blue
-hi def abaqusTimeAverageForce ctermfg=Blue
-hi def abaqusAverageMoment ctermfg=Blue
-hi def abaqusTimeAverageMoment ctermfg=Blue
-hi def abaqusLargestResidualForce ctermfg=DarkYellow
-hi def abaqusLargestScaledResidualForce ctermfg=DarkYellow
-hi def abaqusCorrespondingResidualForce ctermfg=DarkYellow
-hi def abaqusIncrement ctermbg=DarkBlue
-hi def abaqusZeroMoment ctermfg=DarkYellow
-hi def abaqusIncrementIncrease ctermfg=Green
-hi def abaqusStep ctermfg=DarkBlue
-hi def abaqusWarning ctermbg=DarkYellow
-hi def abaqusError ctermbg=Red
-hi def abaqusDispCorrection ctermfg=Red
-hi def abaqusRotCorrection ctermfg=Red
-hi def abaqusNote ctermbg=DarkCyan
-hi def runtimeException ctermfg=Red
-hi def abaqusSevereDiscontinuity ctermfg=DarkMagenta
-hi def abaqusEquilibrium ctermfg=Brown
-hi def abaqusLinearForceEquilibrium ctermfg=Green
-hi def abaqusLinearMomentEquilibrium ctermfg=Green
-hi def abaqusPenetrationError ctermfg=Red
-hi def abaqusForceEquilibrium ctermfg=Red
-hi def abaqusMomentEquilibrium ctermfg=Red
-hi def abaqusMomentEquilibriumAcc ctermfg=Green
-hi def abaqusForceEquilibriumAcc ctermfg=Green
-hi def abaqusElapsedTimes ctermfg=DarkGreen
-hi def abaqusAnalysisSummary ctermfg=DarkGreen
-hi def abaqusAnalysisCompletion ctermbg=DarkGreen
-hi def abaqusContactConstraintErrors ctermfg=Green
-hi def abaqusContactConverged ctermfg=Green
-hi def abaqusForceEquilibriumConverged ctermfg=Green
-hi def abaqusMomentEquilibriumConverged ctermfg=Green
-hi def abaqusSystemWarning ctermfg=Yellow
-hi def abaqusDistortion ctermfg=Yellow
-hi def abaqusTimeIncrementCompleted ctermfg=Cyan
-hi def abaqusStepTimeCompleted ctermfg=Cyan
-hi def abaqusStaticAnalysis ctermbg=DarkBlue
-hi def abaqusSolver ctermfg=LightGreen
-hi def abaqusConvergenceForce ctermfg=DarkYellow
-hi def abaqusConvergenceMoment ctermfg=DarkYellow
-hi def abaqusTimeIncrementation ctermfg=DarkYellow
-hi def abaqusContactControls ctermfg=DarkYellow
-hi def abaqusSolverWarning ctermbg=DarkYellow
+hi def abaqusContactPair ctermfg=DarkCyan guifg=DarkCyan
+hi def abaqusIterationSummary ctermfg=Cyan guifg=Cyan
+hi def abaqusSevereDiscontinuityIterations01 ctermfg=DarkMagenta guifg=DarkMagenta
+hi def abaqusEquilibriumIterations01 ctermfg=DarkYellow guifg=DarkYellow
+hi def abaqusTimeIncCompleted ctermfg=DarkYellow guifg=DarkYellow
+hi def abaqusClosedToOpen ctermfg=Magenta guifg=Magenta
+hi def abaqusOpenToClosed ctermfg=Magenta guifg=Magenta
+hi def abaqusStickingToSlipping ctermfg=Magenta guifg=Magenta
+hi def abaqusSlippingToSticking ctermfg=Magenta guifg=Magenta
+hi def abaqusSevereDiscontinuities01 ctermfg=Magenta guifg=Magenta
+hi def abaqusSevereDiscontinuities ctermbg=Magenta guibg=Magenta
+hi def abaqusMomResZ ctermfg=DarkYellow guifg=DarkYellow
+hi def abaqusEstiCo ctermfg=DarkYellow guifg=DarkYellow
+hi def abaqusCompaError ctermfg=Red guifg=Red
+hi def abaqusMaxConError ctermfg=Red guifg=Red
+hi def abaqusMaxPenError ctermfg=Red guifg=Red
+hi def abaqusLargestScaledResidualMoment ctermfg=DarkYellow guifg=DarkYellow
+hi def abaqusLargestResidualMoment ctermfg=DarkYellow guifg=DarkYellow
+hi def abaqusCorrespondingResidualMoment ctermfg=DarkYellow guifg=DarkYellow
+hi def abaqusAtNode ctermfg=Magenta guifg=Magenta
+hi def abaqusDof ctermfg=DarkRed guifg=DarkRed
+hi def abaqusLargestIncR ctermfg=DarkGreen guifg=DarkGreen
+hi def abaqusLargestCorrR ctermfg=DarkGreen guifg=DarkGreen
+hi def abaqusLargestIncD ctermfg=DarkGreen guifg=DarkGreen
+hi def abaqusLargestCorrD ctermfg=DarkGreen guifg=DarkGreen
+hi def abaqusAverageForce ctermfg=Blue guifg=Blue
+hi def abaqusTimeAverageForce ctermfg=Blue guifg=Blue
+hi def abaqusAverageMoment ctermfg=Blue guifg=Blue
+hi def abaqusTimeAverageMoment ctermfg=Blue guifg=Blue
+hi def abaqusLargestResidualForce ctermfg=DarkYellow guifg=DarkYellow
+hi def abaqusLargestScaledResidualForce ctermfg=DarkYellow guifg=DarkYellow
+hi def abaqusCorrespondingResidualForce ctermfg=DarkYellow guifg=DarkYellow
+hi def abaqusIncrement ctermbg=DarkBlue guibg=DarkBlue
+hi def abaqusZeroMoment ctermfg=DarkYellow guifg=DarkYellow
+hi def abaqusIncrementIncrease ctermfg=Green guifg=Green
+hi def abaqusStep ctermfg=DarkBlue guifg=DarkBlue
+hi def abaqusWarning ctermbg=DarkYellow guibg=DarkYellow
+hi def abaqusError ctermbg=Red guibg=Red
+hi def abaqusDispCorrection ctermfg=Red guifg=Red
+hi def abaqusRotCorrection ctermfg=Red guifg=Red
+hi def abaqusNote ctermbg=DarkCyan guibg=DarkCyan
+hi def runtimeException ctermfg=Red guifg=Red
+hi def abaqusSevereDiscontinuity ctermfg=DarkMagenta guifg=DarkMagenta
+hi def abaqusEquilibrium ctermfg=Brown guifg=Brown
+hi def abaqusLinearForceEquilibrium ctermfg=Green guifg=Green
+hi def abaqusLinearMomentEquilibrium ctermfg=Green guifg=Green
+hi def abaqusPenetrationError ctermfg=Red guifg=Red
+hi def abaqusForceEquilibrium ctermfg=Red guifg=Red
+hi def abaqusMomentEquilibrium ctermfg=Red guifg=Red
+hi def abaqusMomentEquilibriumAcc ctermfg=Green guifg=Green
+hi def abaqusForceEquilibriumAcc ctermfg=Green guifg=Green
+hi def abaqusElapsedTimes ctermfg=DarkGreen guifg=DarkGreen
+hi def abaqusAnalysisSummary ctermfg=DarkGreen guifg=DarkGreen
+hi def abaqusAnalysisCompletion ctermbg=DarkGreen guibg=DarkGreen
+hi def abaqusContactConstraintErrors ctermfg=Green guifg=Green
+hi def abaqusContactConverged ctermfg=Green guifg=Green
+hi def abaqusForceEquilibriumConverged ctermfg=Green guifg=Green
+hi def abaqusMomentEquilibriumConverged ctermfg=Green guifg=Green
+hi def abaqusSystemWarning ctermfg=Yellow guifg=Yellow
+hi def abaqusDistortion ctermfg=Yellow guifg=Yellow
+hi def abaqusTimeIncrementCompleted ctermfg=Cyan guifg=Cyan
+hi def abaqusStepTimeCompleted ctermfg=Cyan guifg=Cyan
+hi def abaqusStaticAnalysis ctermbg=DarkBlue guibg=DarkBlue
+hi def abaqusSolver ctermfg=LightGreen guifg=LightGreen
+hi def abaqusConvergenceForce ctermfg=DarkYellow guifg=DarkYellow
+hi def abaqusConvergenceMoment ctermfg=DarkYellow guifg=DarkYellow
+hi def abaqusTimeIncrementation ctermfg=DarkYellow guifg=DarkYellow
+hi def abaqusContactControls ctermfg=DarkYellow guifg=DarkYellow
+hi def abaqusSolverWarning ctermbg=DarkYellow guibg=DarkYellow
 
 hi def link abaqusContactPair abaqusContactPair
 hi def link abaqusTimeIncrementCompleted abaqusTimeIncrementCompleted
