@@ -44,13 +44,22 @@ syn match abaqusIncrementIncrease /TIME INCREMENT MAY NOW INCREASE TO\s\+\S\+/
 syn match abaqusStep /STEP\s\+\d\+\s\+INCREMENT\s\+\d\+\s\+STEP TIME\s\+\d\+\.\d\+/
 syn match abaqusWarning /.*\*\*\*WARNING:.*$/
 syn match abaqusWarningStart /^\s*\*\*\*WARNING:.*$/ nextgroup=abaqusWarningCont,abaqusWarningStart
-syn match abaqusWarningCont /^\s\{13\}\(ELEMENT NUMBER\|INCREMENTAL ROTATION UPDATE\|FIRST YIELD AT\|(CONTINUUM) ELEMENTS\|THE PLASTICITY\|EXPLANATIONS ARE SUGGESTED\|ALGORITHM\).*$/
+syn match abaqusWarningCont /^\s\{,\}\(ELEMENT NUMBER\|INCREMENTAL ROTATION UPDATE\|FIRST YIELD AT\|(CONTINUUM) ELEMENTS\|THE PLASTICITY\|EXPLANATIONS ARE SUGGESTED\|ALGORITHM\|INCORRECT\|ASSEMBLY\|SOLID\|NONCOVERGENCE\|WITH A \|DEFAULT \|DURING\|ENOUGH\|CONTROLS TO\).*$/
     \ nextgroup=abaqusWarningCont,abaqusWarningStart
 hi def link abaqusWarningStart abaqusWarning
 hi def link abaqusWarningCont abaqusWarning
-syn match abaqusNote /.*\*\*\*NOTE:.*$/
 syn match abaqusError /.*\*\*\*ERROR:.*$/
-syn match abaqusError /.*\*\*\* ERROR:.*$/
+syn match abaqusErrorStart /^\s*\*\*\*ERROR:.*$/ nextgroup=abaqusErrorCont,abaqusErrorStart
+syn match abaqusErrorCont /^\s\{,\}\(REQUESTS HAVE\).*$/
+    \ nextgroup=abaqusErrorCont,abaqusErrorStart
+hi def link abaqusErrorStart abaqusError
+hi def link abaqusErrorCont abaqusError
+syn match abaqusNote /.*\*\*\*NOTE:.*$/
+syn match abaqusNoteStart /^\s*\*\*\*NOTE:.*$/ nextgroup=abaqusNoteCont,abaqusNoteStart
+syn match abaqusNoteCont /^\s\{,\}\(A RIGID\|OR MORE\|ITERATIONS\).*$/
+    \ nextgroup=abaqusNoteCont,abaqusNoteStart
+hi def link abaqusNoteStart abaqusNote
+hi def link abaqusNoteCont abaqusNote
 syn match runtimeException "---------- RUNTIME EXCEPTION HAS OCCURRED ----------"
 syn match abaqusSevereDiscontinuity /CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION\s\+\d\+/
 syn match abaqusEquilibrium /CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION\s\+\d\+/
