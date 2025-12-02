@@ -6,231 +6,310 @@ if exists("b:current_syntax")
   finish
 endif
 
-syn match abaqusContactPair /\((\w\+,\w\+)\)/
-syn match abaqusIterationSummary /^ ITERATION SUMMARY FOR THE INCREMENT:/
-syn match abaqusSevereDiscontinuityIterations01 /^\s*\d\+\sARE SEVERE DISCONTINUITY ITERATIONS/
-syn match abaqusEquilibriumIterations01 /\d\+\sARE EQUILIBRIUM ITERATIONS\.$/
-syn match abaqusTimeIncCompleted /TIME INCREMENT COMPLETED\s\+\ze\s\+,/
-syn match abaqusSevereDiscontinuities01 /^\s*\d\+\sSEVERE DISCONTINUITIES OCCURRED DURING INCREMENT ATTEMPT INITIALIZATION\.$/
-syn match abaqusSevereDiscontinuities /^\s*\d\+\sSEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION\.$/
-syn match abaqusOpenToClosed /^\s*\d\+\sPOINTS CHANGED FROM OPEN TO CLOSED$/
-syn match abaqusClosedToOpen /^\s*\d\+\sPOINTS CHANGED FROM CLOSED TO OPEN$/
-syn match abaqusSlippingToSticking /^\s*\d\+\sPOINTS CHANGED FROM SLIPPING TO STICKING$/
-syn match abaqusStickingToSlipping /^\s*\d\+\sPOINTS CHANGED FROM STICKING TO SLIPPING$/
-syn match abaqusMomResZ /ALL MOMENT\s\+RESIDUALS ARE ZERO/
-syn match abaqusEstiCo /THE ESTIMATED CONTACT FORCE ERROR IS OUTSIDE.*$/
-syn match abaqusCompaError /COMPATIBILITY ERRORS:/
-syn match abaqusAtNode /AT NODE.\{-}\zeDOF/
-syn match abaqusAtNode /AT NODE.\{-}\zeOF CONTACT/
-syn match abaqusDof /DOF\s\+\d\+/
-syn match abaqusMaxPenError /MAX\. PENETRATION ERROR\s\+\S\+\ze\s\+AT NODE/
-syn match abaqusMaxConError /MAX\. CONTACT FORCE ERROR\s\+\S\+\ze\s\+AT NODE/
-syn match abaqusAverageForce /AVERAGE FORCE.\{-}\zeTIME AVG\. FORCE/
-syn match abaqusTimeAverageForce /TIME AVG\. FORCE.*$/
-syn match abaqusAverageMoment /AVERAGE MOMENT.\{-}\zeTIME AVG\. MOMENT/
-syn match abaqusTimeAverageMoment /TIME AVG\. MOMENT.*$/
-syn match abaqusLargestIncD /LARGEST INCREMENT OF DISP\.\s\+\S\+\ze\s\+AT NODE/
-syn match abaqusLargestCorrD /LARGEST CORRECTION TO DISP\.\s\+\S\+\ze\s\+AT NODE/
-syn match abaqusLargestScaledResidualForce /LARGEST SCALED RESIDUAL FORCE\s\+\S\+\ze\s\+AT NODE/
-syn match abaqusLargestResidualForce /LARGEST RESIDUAL FORCE\s\+\S\+\ze\s\+AT NODE/
-syn match abaqusCorrespondingResidualForce /CORRESPONDING RESIDUAL FORCE\s\+\S\+/
-syn match abaqusLargestScaledResidualMoment /LARGEST SCALED RESIDUAL MOMENT\s\+\S\+\ze\s\+AT NODE/
-syn match abaqusLargestResidualMoment /LARGEST RESIDUAL MOMENT\s\+\S\+\ze\s\+AT NODE/
-syn match abaqusCorrespondingResidualMoment /CORRESPONDING RESIDUAL MOMENT\s\+\S\+/
-syn match abaqusLargestIncR /LARGEST INCREMENT OF ROTATION\s\+\S\+\ze\s\+AT NODE/
-syn match abaqusLargestCorrR /LARGEST CORRECTION TO ROTATION\s\+\S\+\ze\s\+AT NODE/
-syn match abaqusIncrement "INCREMENT\s\+\d\+\s\+STARTS.\s\+ATTEMPT NUMBER\s\+\d\+,\s\+TIME INCREMENT\s\+\S\+"
-syn match abaqusIncrementIncrease /TIME INCREMENT MAY NOW INCREASE TO\s\+\S\+/
-syn match abaqusStep /STEP\s\+\d\+\s\+INCREMENT\s\+\d\+\s\+STEP TIME\s\+\d\+\.\d\+/
-syn match abaqusWarning /.*\*\*\*WARNING:.*$/
-syn match abaqusWarningStart /^\s*\*\*\*WARNING:.*$/ nextgroup=abaqusWarningCont,abaqusWarningStart
-syn match abaqusWarningCont /^\s\{,\}\(ELEMENT NUMBER\|INCREMENTAL ROTATION UPDATE\|FIRST YIELD AT\|(CONTINUUM) ELEMENTS\|THE PLASTICITY\|EXPLANATIONS ARE SUGGESTED\|ALGORITHM\|INCORRECT\|ASSEMBLY\|SOLID\|NONCOVERGENCE\|WITH A \|DEFAULT \|DURING\|ENOUGH\|CONTROLS TO\).*$/
-    \ nextgroup=abaqusWarningCont,abaqusWarningStart
-hi def link abaqusWarningStart abaqusWarning
-hi def link abaqusWarningCont abaqusWarning
-syn match abaqusError /.*\*\*\*ERROR:.*$/
-syn match abaqusErrorStart /^\s*\*\*\*ERROR:.*$/ nextgroup=abaqusErrorCont,abaqusErrorStart
-syn match abaqusErrorCont /^\s\{,\}\(REQUESTS HAVE\).*$/
-    \ nextgroup=abaqusErrorCont,abaqusErrorStart
-hi def link abaqusErrorStart abaqusError
-hi def link abaqusErrorCont abaqusError
-syn match abaqusNote /.*\*\*\*NOTE:.*$/
-syn match abaqusNoteStart /^\s*\*\*\*NOTE:.*$/ nextgroup=abaqusNoteCont,abaqusNoteStart
-syn match abaqusNoteCont /^\s\{,\}\(A RIGID\|OR MORE\|ITERATIONS\).*$/
-    \ nextgroup=abaqusNoteCont,abaqusNoteStart
-hi def link abaqusNoteStart abaqusNote
-hi def link abaqusNoteCont abaqusNote
-syn match runtimeException "---------- RUNTIME EXCEPTION HAS OCCURRED ----------"
-syn match abaqusSevereDiscontinuity /CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION\s\+\d\+/
-syn match abaqusEquilibrium /CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION\s\+\d\+/
-syn match abaqusPenetrationError /PENETRATION ERROR TOO LARGE COMPARED TO DISPLACEMENT INCREMENT\./
-syn match abaqusForceEquilibrium /FORCE\s\+EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE\./
-syn match abaqusMomentEquilibrium /MOMENT\s\+EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE\./
-syn match abaqusMomentEquilibriumAcc /MOMENT\s\+EQUILIB\.\s\+ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION/
-syn match abaqusZeroMoment /THERE IS ZERO MOMENT\s\+EVERYWHERE/
-syn match abaqusForceEquilibriumAcc /FORCE\s\+EQUILIB\.\s\+ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION/
-syn match abaqusDispCorrection /DISP\.\s\+CORRECTION TOO LARGE COMPARED TO DISP\.\s\+INCREMENT/
-syn match abaqusRotCorrection /ROTATION CORRECTION TOO LARGE COMPARED TO ROTATION INCREMENT/
-syn match abaqusElapsedTimes /JOB TIME SUMMARY/
-syn match abaqusAnalysisSummary /ANALYSIS SUMMARY/
-syn match abaqusAnalysisCompletion /THE ANALYSIS HAS BEEN COMPLETED/
-syn match abaqusContactConstraintErrors /THE CONTACT CONSTRAINT ERRORS ARE WITHIN THE TOLERANCES\./
-syn match abaqusContactConverged /THE CONTACT CONSTRAINTS HAVE CONVERGED\./
-syn match abaqusForceEquilibriumConverged /THE FORCE\s\+EQUILIBRIUM EQUATIONS HAVE CONVERGED/
-syn match abaqusMomentEquilibriumConverged /THE MOMENT\s\+EQUILIBRIUM EQUATIONS HAVE CONVERGED/
-syn match abaqusLinearForceEquilibrium /THE FORCE\s\+EQUILIBRIUM RESPONSE WAS LINEAR IN THIS INCREMENT/
-syn match abaqusLinearMomentEquilibrium /THE MOMENT\s\+EQUILIBRIUM RESPONSE WAS LINEAR IN THIS INCREMENT/
-syn match abaqusSystemWarning /.*\*\*\*\sWARNING:.*$/
-syn match abaqusDistortion /ELEMENT\s\+\S\+\sIS DISTORTING EXCESSIVELY\./
-syn match abaqusTimeIncrementCompleted /TIME INCREMENT COMPLETED\s\+\S\+,\s\+FRACTION OF STEP COMPLETED\s\+\S\+/
-syn match abaqusStepTimeCompleted /STEP TIME COMPLETED\s\+\S\+,\s\+TOTAL TIME COMPLETED\s\+\S\+/
-syn match abaqusStaticAnalysis /S T E P\s\+\d\s\+S T A T I C\s\+A N A L Y S I S/
-syn match abaqusSolver /LINEAR EQUATION SOLVER TYPE\s\+\w\+\s\+\w\+/
-syn match abaqusConvergenceForce /CONVERGENCE TOLERANCE PARAMETERS FOR FORCE/
-syn match abaqusConvergenceMoment /CONVERGENCE TOLERANCE PARAMETERS FOR MOMENT/
-syn match abaqusTimeIncrementation /TIME INCREMENTATION CONTROL PARAMETERS:/
-syn match abaqusContactControls /CONTACT CONTROLS APPLIED TO ALL CONTACT PAIRS:/
-syn match abaqusSolverWarning /.*\*\*\*\sWARNING: SOLVER PROBLEM\..*$/
+" -------------------------------------------------------------------
+" Section: Basic and miscellaneous matches
+" -------------------------------------------------------------------
 
-hi def abaqusContactPair ctermfg=DarkCyan guifg=DarkCyan
-hi def abaqusIterationSummary ctermfg=Cyan guifg=Cyan
-hi def abaqusSevereDiscontinuityIterations01 ctermfg=DarkMagenta guifg=DarkMagenta
-hi def abaqusEquilibriumIterations01 ctermfg=DarkYellow guifg=DarkYellow
-hi def abaqusTimeIncCompleted ctermfg=DarkYellow guifg=DarkYellow
-hi def abaqusClosedToOpen ctermfg=Magenta guifg=Magenta
-hi def abaqusOpenToClosed ctermfg=Magenta guifg=Magenta
-hi def abaqusStickingToSlipping ctermfg=Magenta guifg=Magenta
-hi def abaqusSlippingToSticking ctermfg=Magenta guifg=Magenta
-hi def abaqusSevereDiscontinuities01 ctermfg=Magenta guifg=Magenta
-hi def abaqusSevereDiscontinuities ctermbg=Magenta guibg=Magenta
-hi def abaqusMomResZ ctermfg=DarkYellow guifg=DarkYellow
-hi def abaqusEstiCo ctermfg=DarkYellow guifg=DarkYellow
-hi def abaqusCompaError ctermfg=Red guifg=Red
-hi def abaqusMaxConError ctermfg=Red guifg=Red
-hi def abaqusMaxPenError ctermfg=Red guifg=Red
-hi def abaqusLargestScaledResidualMoment ctermfg=DarkYellow guifg=DarkYellow
-hi def abaqusLargestResidualMoment ctermfg=DarkYellow guifg=DarkYellow
-hi def abaqusCorrespondingResidualMoment ctermfg=DarkYellow guifg=DarkYellow
-hi def abaqusAtNode ctermfg=Magenta guifg=Magenta
-hi def abaqusDof ctermfg=DarkRed guifg=DarkRed
-hi def abaqusLargestIncR ctermfg=DarkGreen guifg=DarkGreen
-hi def abaqusLargestCorrR ctermfg=DarkGreen guifg=DarkGreen
-hi def abaqusLargestIncD ctermfg=DarkGreen guifg=DarkGreen
-hi def abaqusLargestCorrD ctermfg=DarkGreen guifg=DarkGreen
-hi def abaqusAverageForce ctermfg=Blue guifg=Blue
-hi def abaqusTimeAverageForce ctermfg=Blue guifg=Blue
-hi def abaqusAverageMoment ctermfg=Blue guifg=Blue
-hi def abaqusTimeAverageMoment ctermfg=Blue guifg=Blue
-hi def abaqusLargestResidualForce ctermfg=DarkYellow guifg=DarkYellow
-hi def abaqusLargestScaledResidualForce ctermfg=DarkYellow guifg=DarkYellow
-hi def abaqusCorrespondingResidualForce ctermfg=DarkYellow guifg=DarkYellow
-hi def abaqusIncrement ctermbg=DarkBlue guibg=DarkBlue
-hi def abaqusZeroMoment ctermfg=DarkYellow guifg=DarkYellow
-hi def abaqusIncrementIncrease ctermfg=Green guifg=Green
-hi def abaqusStep ctermfg=DarkBlue guifg=DarkBlue
-hi def abaqusWarning ctermbg=DarkYellow guibg=DarkYellow
-hi def abaqusError ctermbg=Red guibg=Red
-hi def abaqusDispCorrection ctermfg=Red guifg=Red
-hi def abaqusRotCorrection ctermfg=Red guifg=Red
-hi def abaqusNote ctermbg=DarkCyan guibg=DarkCyan
-hi def runtimeException ctermfg=Red guifg=Red
-hi def abaqusSevereDiscontinuity ctermfg=DarkMagenta guifg=DarkMagenta
-hi def abaqusEquilibrium ctermfg=Brown guifg=Brown
-hi def abaqusLinearForceEquilibrium ctermfg=Green guifg=Green
-hi def abaqusLinearMomentEquilibrium ctermfg=Green guifg=Green
-hi def abaqusPenetrationError ctermfg=Red guifg=Red
-hi def abaqusForceEquilibrium ctermfg=Red guifg=Red
-hi def abaqusMomentEquilibrium ctermfg=Red guifg=Red
-hi def abaqusMomentEquilibriumAcc ctermfg=Green guifg=Green
-hi def abaqusForceEquilibriumAcc ctermfg=Green guifg=Green
-hi def abaqusElapsedTimes ctermfg=DarkGreen guifg=DarkGreen
-hi def abaqusAnalysisSummary ctermfg=DarkGreen guifg=DarkGreen
-hi def abaqusAnalysisCompletion ctermbg=DarkGreen guibg=DarkGreen
-hi def abaqusContactConstraintErrors ctermfg=Green guifg=Green
-hi def abaqusContactConverged ctermfg=Green guifg=Green
-hi def abaqusForceEquilibriumConverged ctermfg=Green guifg=Green
-hi def abaqusMomentEquilibriumConverged ctermfg=Green guifg=Green
-hi def abaqusSystemWarning ctermfg=Yellow guifg=Yellow
-hi def abaqusDistortion ctermfg=Yellow guifg=Yellow
-hi def abaqusTimeIncrementCompleted ctermfg=Cyan guifg=Cyan
-hi def abaqusStepTimeCompleted ctermfg=Cyan guifg=Cyan
-hi def abaqusStaticAnalysis ctermbg=DarkBlue guibg=DarkBlue
-hi def abaqusSolver ctermfg=LightGreen guifg=LightGreen
-hi def abaqusConvergenceForce ctermfg=DarkYellow guifg=DarkYellow
-hi def abaqusConvergenceMoment ctermfg=DarkYellow guifg=DarkYellow
-hi def abaqusTimeIncrementation ctermfg=DarkYellow guifg=DarkYellow
-hi def abaqusContactControls ctermfg=DarkYellow guifg=DarkYellow
-hi def abaqusSolverWarning ctermbg=DarkYellow guibg=DarkYellow
+" Contact pair designation: e.g. (SURF1,SURF2)
+syn match abaqusContactPair        /(\(\w\+\,\w\+\))/ 
 
-hi def link abaqusContactPair abaqusContactPair
-hi def link abaqusTimeIncrementCompleted abaqusTimeIncrementCompleted
-hi def link abaqusStepTimeCompleted abaqusStepTimeCompleted
-hi def link abaqusIterationSummary abaqusIterationSummary
-hi def link abaqusSevereDiscontinuityIterations01 abaqusSevereDiscontinuityIterations01
-hi def link abaqusEquilibriumIterations01 abaqusEquilibriumIterations01
-hi def link abaqusTimeIncCompleted abaqusTimeIncCompleted
-hi def link abaqusClosedToOpen abaqusClosedToOpen
-hi def link abaqusOpenToClosed abaqusOpenToClosed
-hi def link abaqusStickingToSlipping abaqusStickingToSlipping
-hi def link abaqusSlippingToSticking abaqusSlippingToSticking
-hi def link abaqusSevereDiscontinuities01 abaqusSevereDiscontinuities01
-hi def link abaqusSevereDiscontinuities abaqusSevereDiscontinuities
-hi def link abaqusMomResZ abaqusMomResZ
-hi def link abaqusEstiCo abaqusEstiCo
-hi def link abaqusCompaError abaqusCompaError
-hi def link abaqusMaxConError abaqusMaxConError
-hi def link abaqusMaxPenError abaqusMaxPenError
-hi def link abaqusLargestScaledResidualMoment abaqusLargestScaledResidualMoment
-hi def link abaqusLargestResidualMoment abaqusLargestResidualMoment
-hi def link abaqusCorrespondingResidualMoment abaqusCorrespondingResidualMoment
-hi def link abaqusAtNode abaqusAtNode
-hi def link abaqusDof abaqusDof
-hi def link abaqusLargestIncR abaqusLargestIncR
-hi def link abaqusLargestCorrR abaqusLargestCorrR
-hi def link abaqusLargestIncD abaqusLargestIncD
-hi def link abaqusLargestCorrD abaqusLargestCorrD
-hi def link abaqusAverageForce abaqusAverageForce
-hi def link abaqusTimeAverageForce abaqusTimeAverageForce
-hi def link abaqusAverageMoment abaqusAverageMoment
-hi def link abaqusTimeAverageMoment abaqusTimeAverageMoment
-hi def link abaqusLargestResidualForce abaqusLargestResidualForce
-hi def link abaqusLargestScaledResidualForce abaqusLargestScaledResidualForce
-hi def link abaqusCorrespondingResidualForce abaqusCorrespondingResidualForce
-hi def link abaqusIncrement abaqusIncrement
-hi def link abaqusZeroMoment abaqusZeroMoment
-hi def link abaqusIncrementIncrease abaqusIncrementIncrease
-hi def link abaqusStep abaqusStep
-hi def link abaqusWarning abaqusWarning
-hi def link abaqusError abaqusError
-hi def link abaqusNote abaqusNote
-hi def link abaqusDispCorrection abaqusDispCorrection
-hi def link abaqusMomentEquilibriumAcc abaqusMomentEquilibriumAcc
-hi def link abaqusForceEquilibriumAcc abaqusForceEquilibriumAcc
-hi def link abaqusRotCorrection abaqusDispCorrection
-hi def link runtimeException runtimeException
-hi def link abaqusSevereDiscontinuity abaqusSevereDiscontinuity
-hi def link abaqusEquilibrium abaqusEquilibrium
-hi def link abaqusPenetrationError abaqusPenetrationError
-hi def link abaqusForceEquilibrium abaqusForceEquilibrium
-hi def link abaqusLinearForceEquilibrium abaqusLinearForceEquilibrium
-hi def link abaqusLinearMomentEquilibrium abaqusLinearMomentEquilibrium
-hi def link abaqusMomentEquilibrium abaqusMomentEquilibrium
-hi def link abaqusElapsedTimes abaqusElapsedTimes
-hi def link abaqusContactConstraintErrors abaqusContactConstraintErrors
-hi def link abaqusContactConverged abaqusContactConverged
-hi def link abaqusAnalysisSummary abaqusAnalysisSymmary
-hi def link abaqusAnalysisCompletion abaqusAnalysisCompletion
-hi def link abaqusForceEquilibriumConverged abaqusForceEquilibriumConverged
-hi def link abaqusMomentEquilibriumConverged abaqusMomentEquilibriumConverged
-hi def link abaqusSystemWarning abaqusSystemWarning
-hi def link abaqusDistortion abaqusDistortion
-hi def link abaqusTimeIncrementCompleted abaqusTimeIncrementCompleted
-hi def link abaqusStaticAnalysis abaqusStaticAnalysis
-hi def link abaqusSolver abaqusSolver
-hi def link abaqusConvergenceForce abaqusConvergenceForce
-hi def link abaqusConvergenceMoment abaqusConvergenceMoment
-hi def link abaqusTimeIncrementation abaqusTimeIncrementation
-hi def link abaqusContactControls abaqusContactControls
-hi def link abaqusSolverWarning abaqusSolverWarning
+" Lines referencing nodes and degrees of freedom
+syn match abaqusAtNode              /AT NODE.\{-}\zeDOF/
+syn match abaqusAtNode              /AT NODE.\{-}\zeOF CONTACT/
+syn match abaqusDof                 /DOF\s\+\d\+/
 
-let b:current_syntax = "messagefile"
+" Numeric values: decimal and scientific notation
+syn match abaqusNumeric             /\v[-+]?\d+(\.\d+)?(E[-+]?\d+)?/
+
+" Non-default controls: lines beginning with "***" indicate non-default
+" convergence or time increment parameters selected via *CONTROLS
+syn match abaqusNonDefaultCtrl      /^\s*\*\*\*.*/
+
+" Runtime exception banner
+syn match runtimeException          /---------- RUNTIME EXCEPTION HAS OCCURRED ----------/
+
+" -------------------------------------------------------------------
+" Section: Step and analysis headers
+" -------------------------------------------------------------------
+
+" STEP header showing the current step, increment and step time
+syn match abaqusStepHeader          /^\s*STEP\s\+\d\+\s\+INCREMENT\s\+\d\+\s\+STEP\s\+TIME\s\+[0-9.E+-]\+/
+
+" Generic analysis header: matches any line (not beginning with *) that
+" contains the word ANALYSIS.  Examples include static/dynamic analyses
+syn match abaqusAnalysisHeader      /^\s*[^*].*ANALYSIS.*$/
+
+" Step type header: lines like "S T E P  1  S T A T I C  A N A L Y S I S"
+syn match abaqusStepTypeHeader      /^\s*S T E P\s\+\d\+.*$/
+
+" Analysis data check header
+syn match abaqusDataCheckHeader     /^\s*A N A L Y S I S\s\+D A T A C H E C K.*/
+
+" Analysis summary and completion messages
+syn match abaqusAnalysisSummaryHeader /^\s*ANALYSIS SUMMARY:/
+syn match abaqusAnalysisCompletion   /^\s*THE ANALYSIS HAS BEEN COMPLETED/
+
+" -------------------------------------------------------------------
+" Section: Increment control and solver information
+" -------------------------------------------------------------------
+
+" Increment start: captures increment number, attempt number and time increment
+syn match abaqusIncrementHeader     /^\s*INCREMENT\s\+\d\+\s\+STARTS\.\s\+ATTEMPT\s\+NUMBER\s\+\d\+,\s\+TIME\s\+INCREMENT\s\+[0-9.E+-]\+/
+
+" Lines indicating that a time increment may increase
+syn match abaqusIncrementIncrease   /^\s*TIME\s\+INCREMENT\s\+MAY\s\+NOW\s\+INCREASE\s\+TO\s\+[0-9.E+-]\+/
+
+" Time increment and step time completion summaries
+syn match abaqusTimeIncSummary      /^\s*TIME\s\+INCREMENT\s\+COMPLETED\s\+[0-9.E+-]\+,\s\+FRACTION\s\+OF\s\+STEP\s\+COMPLETED\s\+[0-9.E+-]\+/
+syn match abaqusStepTimeSummary     /^\s*STEP\s\+TIME\s\+COMPLETED\s\+[0-9.E+-]\+,\s\+TOTAL\s\+TIME\s\+COMPLETED\s\+[0-9.E+-]\+$/
+
+" Solver running information
+syn match abaqusSolverRunning       /^\s*SYMMETRIC\s\+HYBRID\s\+DIRECT\s\+SPARSE\s\+SOLVER\s\+RUNNING\s\+ON/
+syn match abaqusSolverRunning       /^\s*REGULARIZED\s\+UNSYMMETRIC\s\+HYBRID\s\+DIRECT\s\+SPARSE\s\+SOLVER\s\+RUNNING\s\+ON/
+syn match abaqusParallelInfo        /^\s*\d\+\s\+HOST\s\+x\s\+\d\+\s\+MPI\s\+RANK\s\+PER\s\+HOST\s\+x\s\+\d\+\s\+THREADS\s\+PER\s\+RANK/
+syn match abaqusCountLabel          /^\s*NUMBER\s\+OF\s\+\(EQUATIONS\|RHS\|FLOPS\):/
+
+" Job time summary header and lines
+syn match abaqusJobTimeHeader       /^\s*JOB TIME SUMMARY$/
+syn match abaqusJobTimeLine         /^\s*\w.*=\s*[0-9.E+-]\+\(\s*[0-9.E+-]\+\)*$/
+
+" Restart information and check point markers
+syn match abaqusRestartInfo         /^\s*RESTART INFORMATION WRITTEN.*/
+syn match abaqusCheckPoint          /^\s*CHECK POINT.*/
+
+" Element load balance and parallel contact tracking
+syn match abaqusElementLoadHeader   /^\s*INITIAL ELEMENT LOAD BALANCE.*/
+syn match abaqusParallelContact     /^\s*PARALLEL CONTACT TRACKING ENABLED/
+
+" Constraint information
+syn match abaqusConstraintInfo      /^\s*COLLECTING .*CONSTRAINT INFORMATION.*$/
+
+" Time increment control parameter section
+syn match abaqusTimeIncrementation  /^\s*TIME INCREMENTATION CONTROL PARAMETERS:/
+
+" Linear equation solver type header
+syn match abaqusSolverType          /^\s*LINEAR EQUATION SOLVER TYPE\s\+\w\+\s\+\w\+/
+
+" -------------------------------------------------------------------
+" Section: Convergence tolerance parameters and controls
+" -------------------------------------------------------------------
+
+" Headers for convergence tolerance sections (Force, Moment, Cav. Vol., Vol. Flux)
+syn match abaqusToleranceSection    /^\s*CONVERGENCE TOLERANCE PARAMETERS FOR \w\+/
+
+" Individual criterion lines beginning with CRITERION or ALTERNATE CRIT.
+syn match abaqusCriterionLine       /^\s*\(CRITERION\|ALTERNATE CRIT\.\)\s.*$/
+
+" Lines indicating that non-default parameters are selected
+syn match abaqusNonDefaultIndicator /^\s*\*\*\* INDICATES USE OF.*/
+
+" Time increment control criteria lines (cut-back, increase factors, etc.)
+syn match abaqusTimeControlParam    /^\s*\(CUT-BACK FACTOR\|INCREASE FACTOR\|MAX\. TIME INCREMENT\|MINIMUM TIME INCREMENT\|MAXIMUM EQUILIBRIUM ITERATIONS\|MAXIMUM DISCON\. ITERS\|MAXIMUM CONTACT AUGMENTATIONS\).*/
+
+" -------------------------------------------------------------------
+" Section: Convergence checks, residuals, contact and averages
+" -------------------------------------------------------------------
+
+" Convergence checks for equilibrium and severe discontinuity iterations
+syn match abaqusEquilConvChecks     /^\s*CONVERGENCE\s\+CHECKS\s\+FOR\s\+EQUILIBRIUM\s\+ITERATION\s\+\d\+/
+syn match abaqusSevereDiscontinuity /^\s*CONVERGENCE\s\+CHECKS\s\+FOR\s\+SEVERE\s\+DISCONTINUITY\s\+ITERATION\s\+\d\+/
+
+" Severe discontinuity counts and contact state changes
+syn match abaqusSevereDiscontinuityCount /^\s*\d\+\s\+SEVERE\s\+DISCONTINUITIES\s\+OCCURRED\s\+DURING\s\+THIS\s\+ITERATION\./
+syn match abaqusContactStateChange       /^\s*\d\+\s\+POINTS\s\+CHANGED\s\+FROM\s\+\(OPEN\|CLOSED\)\s\+TO\s\+\(OPEN\|CLOSED\)/
+
+" Contact error lines
+syn match abaqusContactErrorLine     /^\s*MAX\.\s\+\(PENETRATION\s\+ERROR\|CONTACT\s\+FORCE\s\+ERROR\)\s\+.*$/
+
+" Contact constraint status messages
+syn match abaqusContactConverged     /^\s*THE\s\+CONTACT\s\+CONSTRAINTS\s\+HAVE\s\+CONVERGED\./
+syn match abaqusContactWithinTol     /^\s*THE\s\+CONTACT\s\+CONSTRAINT\s\+ERRORS\s\+ARE\s\+WITHIN\s\+THE\s\+TOLERANCES\./
+syn match abaqusContactOutsideTol    /^\s*THE\s\+ESTIMATED\s\+CONTACT\s\+FORCE\s\+ERROR\s\+IS\s\+OUTSIDE\s\+OF\s\+CONVERGENCE\s\+TOLERANCES\./
+
+" Average lines for Force, Moment and Vol. Flux (and cavity volume if present)
+syn match abaqusAverageLine         /^\s*AVERAGE\s\+\(FORCE\|MOMENT\|VOL\.\s\+FLUX\|CAV\.\s\+VOL\.\)/
+
+" Time average continuation lines
+syn match abaqusTimeAverageLine     /^\s*TIME\s\+AVG\.\s\+.*$/
+
+" Largest residual, increment or correction lines (scaled and unscaled)
+syn match abaqusLargestLine         /^\s*LARGEST\s\+\(SCALED\s\+\)\?\(RESIDUAL\|INCREMENT\|CORRECTION\).*/
+
+" Corresponding residual lines
+syn match abaqusCorrespondingLine   /^\s*CORRESPONDING\s\+RESIDUAL\s\+\(FORCE\|MOMENT\|CAV\.\s\+VOL\.\)\?\s.*$/
+
+" Lines summarising estimate or correction values
+syn match abaqusEstimateLine        /^\s*ESTIMATE OF .*/
+
+" Vol. flux zero-residual / status lines
+syn match abaqusVolFluxResidualZero /^\s*ALL\s\+VOL\.\s\+FLUX\s\+RESIDUALS\s\+ARE\s\+ZERO/
+syn match abaqusZeroVolFlux         /^\s*THERE\s\+IS\s\+ZERO\s\+VOL\.\s\+FLUX\s\+EVERYWHERE/
+
+" -------------------------------------------------------------------
+" Section: Equilibrium status and convergence messages
+" -------------------------------------------------------------------
+
+" Equilibrium not achieved messages for force, moment or flux / cavity volume
+syn match abaqusEquilNotAchieved    /^\s*\(FORCE\|MOMENT\|CAV\.\s\+VOL\.\|VOL\.\s\+FLUX\)\s\+EQUILIBRIUM\s\+NOT\s\+ACHIEVED\s\+WITHIN\s\+TOLERANCE\./
+
+" Equilibrium converged messages
+syn match abaqusEquilConverged      /^\s*THE\s\+\(FORCE\|MOMENT\|CAV\.\s\+VOL\.\|VOL\.\s\+FLUX\)\s\+EQUILIBRIUM\s\+EQUATIONS\s\+HAVE\s\+CONVERGED/
+
+" Equilibrium accepted based on residual and estimated correction
+syn match abaqusEquilAccepted       /^\s*\(FORCE\|MOMENT\|CAV\.\s\+VOL\.\|VOL\.\s\+FLUX\)\?\s*EQUILIB\.\s\+ACCEPTED\s\+BASED\s\+ON\s\+SMALL\s\+RESIDUAL\s\+AND\s\+ESTIMATED\s\+CORRECTION/
+
+" Linear equilibrium response messages
+syn match abaqusEquilLinear         /^\s*THE\s\+\(FORCE\|MOMENT\|CAV\.\s\+VOL\.\|VOL\.\s\+FLUX\)\s\+EQUILIBRIUM\s\+RESPONSE\s\+WAS\s\+LINEAR\s\+IN\s\+THIS\s\+INCREMENT/
+
+" Severe discontinuity iteration counts in iteration summary (keep for completeness)
+syn match abaqusSevereDiscontinuityIterations /^\s*\d\+\s\+ARE\s\+SEVERE\s\+DISCONTINUITY\s\+ITERATIONS\.\?$/
+
+" Equilibrium iteration counts within the iteration summary
+syn match abaqusEquilibriumIterations  /^\s*\d\+\s\+ARE\s\+EQUILIBRIUM\s\+ITERATIONS\.\?$/
+
+" -------------------------------------------------------------------
+" Section: Iteration summaries and summaries for increments
+" -------------------------------------------------------------------
+
+" Iteration summary header
+syn match abaqusIterSummaryHeader   /^\s*ITERATION SUMMARY FOR THE INCREMENT:.*/
+
+" Counts of severe discontinuity and equilibrium iterations in summary
+syn match abaqusIterSummaryCount    /^\s*\d\+\s\+ARE.*ITERATIONS\.\?$/
+
+" -------------------------------------------------------------------
+" Section: Error, warning and note messages
+" -------------------------------------------------------------------
+
+" Warnings: a line containing ***WARNING and its continuations
+syn match abaqusWarning             /.*\*\*\*WARNING:.*/
+syn match abaqusWarningStart        /^\s*\*\*\*WARNING:.*/ nextgroup=abaqusWarningCont,abaqusWarningStart
+syn match abaqusWarningCont         /^\s\{,}\(ELEMENT NUMBER\|INCREMENTAL ROTATION UPDATE\|FIRST YIELD AT\|(CONTINUUM) ELEMENTS\|THE PLASTICITY\|EXPLANATIONS ARE SUGGESTED\|ALGORITHM\|INCORRECT\|ASSEMBLY\|SOLID\|NONCOVERGENCE\|WITH A \|DEFAULT \|DURING\|ENOUGH\|CONTROLS TO\).*/ nextgroup=abaqusWarningCont,abaqusWarningStart
+
+" System warnings and solver warnings
+syn match abaqusSystemWarning       /.*\*\*\*\sWARNING:.*/
+syn match abaqusSolverWarning       /.*\*\*\*\sWARNING: SOLVER PROBLEM\..*/
+
+" Errors and their continuations
+syn match abaqusError               /.*\*\*\*ERROR:.*/
+syn match abaqusErrorStart          /^\s*\*\*\*ERROR:.*/ nextgroup=abaqusErrorCont,abaqusErrorStart
+syn match abaqusErrorCont           /^\s\{,}\(REQUESTS HAVE\).*/ nextgroup=abaqusErrorCont,abaqusErrorStart
+
+" Notes and their continuations
+syn match abaqusNote                /.*\*\*\*NOTE:.*/
+syn match abaqusNoteStart           /^\s*\*\*\*NOTE:.*/ nextgroup=abaqusNoteCont,abaqusNoteStart
+syn match abaqusNoteCont            /^\s\{,}\(A RIGID\|OR MORE\|ITERATIONS\).*/ nextgroup=abaqusNoteCont,abaqusNoteStart
+
+" Penetration error and other specific warning lines
+syn match abaqusPenetrationError    /PENETRATION ERROR TOO LARGE COMPARED TO DISPLACEMENT INCREMENT\./
+syn match abaqusDispCorrection      /^\s*DISP\.\s\+CORRECTION TOO LARGE COMPARED TO DISP\.\s\+INCREMENT/
+syn match abaqusRotCorrection       /ROTATION CORRECTION TOO LARGE COMPARED TO ROTATION INCREMENT/
+syn match abaqusDistortion          /ELEMENT\s\+\S\+\sIS DISTORTING EXCESSIVELY\./
+
+" -------------------------------------------------------------------
+" Section: Job and analysis summaries
+" -------------------------------------------------------------------
+
+" Analysis count lines (used in analysis summary sections)
+syn match abaqusAnalysisCount       /^\s*\d\+\s\+\w.*$/
+
+" Job elapsed time summary lines
+syn match abaqusElapsedTimes        /^\s*JOB TIME SUMMARY/
+
+" -------------------------------------------------------------------
+" Section: Highlight group links
+" -------------------------------------------------------------------
+
+" Link syntax groups to existing Vim highlight groups.
+
+hi def link abaqusContactPair        Identifier
+hi def link abaqusAtNode             Identifier
+hi def link abaqusDof                Number
+hi def link abaqusNumeric            Number
+hi def link abaqusNonDefaultCtrl     Special
+hi def link runtimeException         ErrorMsg
+
+" Headers and section titles
+hi def link abaqusStepHeader         Label
+hi def link abaqusStepTypeHeader     Label
+hi def link abaqusDataCheckHeader    Title
+hi def link abaqusAnalysisHeader     Title
+hi def link abaqusAnalysisSummaryHeader Title
+hi def link abaqusAnalysisCompletion Statement
+
+" Increment and solver details
+hi def link abaqusIncrementHeader    Label
+hi def link abaqusIncrementIncrease  WarningMsg
+hi def link abaqusTimeIncSummary     Statement
+hi def link abaqusStepTimeSummary    Statement
+hi def link abaqusSolverRunning      Statement
+hi def link abaqusParallelInfo       Type
+hi def link abaqusCountLabel         PreProc
+hi def link abaqusJobTimeHeader      Title
+hi def link abaqusJobTimeLine        Identifier
+hi def link abaqusRestartInfo        Statement
+hi def link abaqusCheckPoint         Statement
+hi def link abaqusElementLoadHeader  Title
+hi def link abaqusParallelContact    Type
+hi def link abaqusConstraintInfo     Statement
+hi def link abaqusTimeIncrementation Title
+hi def link abaqusSolverType         Statement
+
+" Convergence parameters
+hi def link abaqusToleranceSection   Identifier
+hi def link abaqusCriterionLine      Identifier
+hi def link abaqusNonDefaultIndicator Special
+hi def link abaqusTimeControlParam   Identifier
+
+" Convergence checks and residuals
+hi def link abaqusEquilConvChecks    Function
+hi def link abaqusSevereDiscontinuity Function
+hi def link abaqusSevereDiscontinuityCount WarningMsg
+hi def link abaqusContactStateChange Identifier
+hi def link abaqusContactErrorLine   Identifier
+hi def link abaqusContactConverged   Statement
+hi def link abaqusContactWithinTol   Statement
+hi def link abaqusContactOutsideTol  WarningMsg
+hi def link abaqusAverageLine        Identifier
+hi def link abaqusTimeAverageLine    Identifier
+hi def link abaqusLargestLine        Identifier
+hi def link abaqusCorrespondingLine  Identifier
+hi def link abaqusEstimateLine       Identifier
+hi def link abaqusVolFluxResidualZero Identifier
+hi def link abaqusZeroVolFlux        Statement
+
+" Equilibrium status
+hi def link abaqusEquilNotAchieved   WarningMsg
+hi def link abaqusEquilConverged     Statement
+hi def link abaqusEquilAccepted      Statement
+hi def link abaqusEquilLinear        Statement
+hi def link abaqusSevereDiscontinuityIterations WarningMsg
+hi def link abaqusEquilibriumIterations Number
+
+" Iteration summaries
+hi def link abaqusIterSummaryHeader  Label
+hi def link abaqusIterSummaryCount   Number
+
+" Error, warning and note groups
+hi def link abaqusWarning            WarningMsg
+hi def link abaqusWarningStart       WarningMsg
+hi def link abaqusWarningCont        WarningMsg
+hi def link abaqusSystemWarning      WarningMsg
+hi def link abaqusSolverWarning      WarningMsg
+hi def link abaqusError              ErrorMsg
+hi def link abaqusErrorStart         ErrorMsg
+hi def link abaqusErrorCont          ErrorMsg
+hi def link abaqusNote               Identifier
+hi def link abaqusNoteStart          Identifier
+hi def link abaqusNoteCont           Identifier
+hi def link abaqusPenetrationError   WarningMsg
+hi def link abaqusDispCorrection     WarningMsg
+hi def link abaqusRotCorrection      WarningMsg
+hi def link abaqusDistortion         WarningMsg
+
+" Job/analysis summary lines
+hi def link abaqusAnalysisCount      Number
+hi def link abaqusElapsedTimes       Title
+
+" Set the current syntax for this buffer
+let b:current_syntax = "abaqusmsg"
