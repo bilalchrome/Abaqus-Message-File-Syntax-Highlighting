@@ -48,9 +48,6 @@ mkdir -p ~/.config/nvim/syntax
 cp messagefile.vim ~/.config/nvim/syntax/
 ```
 
-> If you prefer a clearer name, you can also rename the file to `abaqusmsg.vim`.
-> Just make sure the `filetype` you set (below) matches the filename (without `.vim`).
-
 ---
 
 ### 2. Tell Vim/Neovim to use this syntax for `.msg` files
