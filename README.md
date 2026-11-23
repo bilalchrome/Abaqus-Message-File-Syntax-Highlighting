@@ -1,3 +1,7 @@
+> **This repository is archived.** The syntax file has been rewritten and extended (folding,
+> increment overview, cutback navigation, Notepad++ support) in
+> **[bilalchrome/vim-abaqusmsg](https://github.com/bilalchrome/vim-abaqusmsg)**.
+
 # ABAQUS Message File Syntax Highlighting for Vim and Neovim
 
 ## Introduction
